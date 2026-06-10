@@ -17,7 +17,6 @@ const Form = () => {
     }
   };
 
-
   const handleSubmit = async (e) => {
     e.preventDefault();
     setStatus({ loading: true, success: null, error: null });
@@ -62,7 +61,7 @@ const Form = () => {
       {status.success && <div className="ct-alert ct-alert--success">{status.success}</div>}
       {status.error && <div className="ct-alert ct-alert--error">{status.error}</div>}
 
-      <form onSubmit={handleSubmit} noValidate>
+      <form onSubmit={handleSubmit} noValidate netlify>
         <div className="ct-form-row">
           <div className="ct-field">
             <input
