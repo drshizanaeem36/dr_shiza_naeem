@@ -1,0 +1,61 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap');
+
+.banner5-root {
+  position: relative;
+  width: 100%;
+  height: auto;
+  min-height: 650px;;
+  background-position: center center;
+  background-size: cover;
+  background-attachment: fixed;
+  background-color: #1a1714;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+}
+
+/* Dark directional overlay — heavy left, fades right */
+.banner5-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    105deg,
+    rgba(10, 9, 8, 0.63) 45%,
+    rgba(10, 9, 8, 0.317) 100%
+  );
+  z-index: 1;
+}
+
+/* ── Content ── */
+.banner5-content {
+  position: relative;
+  z-index: 2;
+  padding: 90px 80px 50px 80px;
+  max-width: 640px;
+}
+
+
+/* Headline */
+.banner5-heading {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 68px;
+  font-weight: 300;
+  line-height: 1.08;
+  color: #f5f0e8;
+  margin: 0 0 8px 0;
+  letter-spacing: -0.01em;
+}
+
+
+
+/* ── Responsive ── */
+@media (max-width: 768px) {
+  .banner5-content {
+    padding: 100px 28px 160px 28px;
+    max-width: 100%;
+  }
+
+  .banner5-heading {
+    font-size: 42px;
+  }
+}

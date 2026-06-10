@@ -1,0 +1,17 @@
+/* ── FEATURED QUOTE ── */
+        .featured-quote1-section {
+          background: var(--charcoal);
+          padding: 6rem 0;
+          text-align: center;
+        }
+        .featured-quote1-text {
+          font-family: 'Playfair Display', serif;
+          font-style: italic;
+          font-size: clamp(1.4rem, 3vw, 2.1rem);
+          font-weight: 400;
+          color: var(--rose-gold);
+          line-height: 1.6;
+          max-width: 720px;
+          margin: 0 auto 2rem;
+        }
+     

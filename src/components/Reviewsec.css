@@ -1,0 +1,178 @@
+/* Testimonials.css */
+
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400;1,500&family=Raleway:wght@300;400;500&display=swap');
+
+:root {
+  --rose-gold: #C9956A;
+  --rose-gold-light: #E8C4A0;
+  --cream: #F5EFE6;
+}
+
+.testimonials1-section {
+  overflow: hidden;
+}
+
+.testimonials-carousel1 {
+  margin-top: 2rem;
+  overflow: hidden;
+  position: relative;
+}
+.testimonials-carousel1::before,
+.testimonials-carousel1::after {
+  content: '';
+  position: absolute;
+  top: 0; bottom: 0;
+  width: 150px;
+  z-index: 2;
+  pointer-events: none;
+}
+.testimonials-carousel1::before {
+  left: 0;
+  background: linear-gradient(90deg, var(--bg-secondary), transparent);
+}
+.testimonials-carousel1::after {
+  right: 0;
+  background: linear-gradient(-90deg, var(--bg-secondary), transparent);
+}
+
+.carousel1-track {
+  display: flex;
+  gap: 1.5rem;
+  padding: 1rem 2rem;
+  animation: carouselScroll 40s linear infinite;
+  width: max-content;
+}
+.testimonials-carousel1:hover .carousel1-track {
+  animation-play-state: paused;
+}
+@keyframes carouselScroll {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
+/* ── Testimonial Card ── */
+.testimonial1-card {
+  position: relative;
+  background: linear-gradient(145deg, #100c0c, #1c1515, #100c0c) !important;
+  border-radius: 8px;
+  overflow: hidden;
+  width: 340px;
+  
+  flex-shrink: 0;
+}
+
+.testimonial1-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 3px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    var(--rose-gold),
+    var(--rose-gold-light),
+    var(--rose-gold),
+    transparent
+  );
+}
+
+.testimonial1-card .card1-inner {
+  padding: 24px 24px 20px;
+  display: flex;
+  flex-direction: column;
+  min-height: 282px;
+}
+
+.quote-mark1 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 60px;
+  color: var(--rose-gold);
+  opacity: 0.3;
+  line-height: 0.6;
+  margin-bottom: 16px;
+  align-self: flex-start;
+  user-select: none;
+}
+
+.testimonial1-quote {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 16px;
+  font-style: italic;
+  color: var(--cream);
+  line-height: 1.6;
+  flex: 1;
+  margin: 0 0 24px;
+}
+
+.card1-divider {
+  width: 40px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--rose-gold), transparent);
+  margin-bottom: 16px;
+}
+
+.testimonial1-author {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.testimonial1-avatar {
+  width: 38px; height: 38px;
+  border-radius: 50%;
+  border: 1px solid rgba(201, 149, 106, 0.3);
+  display: flex; align-items: center; justify-content: center;
+  font-family: 'Raleway', sans-serif;
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 1px;
+  color: var(--rose-gold);
+  background: #1c1515;
+  flex-shrink: 0;
+}
+
+.author1-name {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 15px;
+  font-weight: 500;
+  color: var(--cream);
+  margin: 0 0 3px;
+}
+
+.author1-role {
+  font-family: 'Raleway', sans-serif;
+  font-size: 8.5px;
+  letter-spacing: 3.5px;
+  color: var(--rose-gold);
+  text-transform: uppercase;
+  margin: 0;
+}
+
+
+
+
+
+
+
+
+
+
+.rev-desc {
+  font-size: 18px;
+  font-weight: 300;
+  color: #E8C4A8;
+  max-width: 600px;
+  margin: 0 auto;
+  line-height: 1.8;
+}
+
+
+.rev-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 52px;
+  font-weight: 300;
+  color: #F8F0E8;
+  line-height: 1.1;
+  margin: 0 0 16px;
+}
+

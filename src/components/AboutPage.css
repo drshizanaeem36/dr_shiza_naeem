@@ -1,0 +1,672 @@
+.about-pg {
+    font-family: 'DM Sans', sans-serif;
+  }
+
+/* ── Hero Strip ── */
+.hero-strip {
+  background: linear-gradient(110deg, #080606 0%, #130f0f 40%, #1a1212 60%, #100c0c 100%);
+  border: none;
+  border-radius: 0;
+  padding: 2.5rem 2.5rem 2.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+  margin-bottom: 1.5rem;
+  flex-wrap: wrap;
+  position: relative;
+  overflow: hidden;
+  margin-top: 1rem;
+  margin-bottom: 2.5rem;
+}
+
+/* left accent bar */
+.hero-strip::before {
+  content: '';
+  position: absolute;
+  left: 0; top: 0; bottom: 0;
+  width: 4px;
+  background: linear-gradient(180deg, transparent, #c9956c, #e8c4a8, #c9956c, transparent);
+}
+
+/* top rule */
+.hero-strip::after {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, #c9956c, transparent);
+}
+
+/* bottom rule — via extra element, add this div inside .hero-strip */
+.hero-strip-bottom-rule {
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, #c9956c, transparent);
+}
+
+/* diagonal pattern on the right */
+.hero-strip-pattern {
+  position: absolute;
+  right: 0; top: 0; bottom: 0;
+  width: 35%;
+  background-image: repeating-linear-gradient(
+    -45deg,
+    transparent,
+    transparent 20px,
+    rgba(201,149,108,0.025) 20px,
+    rgba(201,149,108,0.025) 21px
+  );
+  pointer-events: none;
+}
+
+/* radial glow */
+.hero-strip-glow {
+  position: absolute;
+  left: -100px; top: 50%;
+  transform: translateY(-50%);
+  width: 400px; height: 300px;
+  background: radial-gradient(ellipse, rgba(201,149,108,0.07) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.hero1-title {
+  font-family: 'Cinzel', serif;
+  font-size: clamp(28px, 4vw, 44px);
+  font-weight: 500;
+  line-height: 1.1;
+  letter-spacing: 4px;
+  color: #F8F0E8;
+  margin: 0 0 0.75rem;
+}
+
+/* thin rose gold rule under name */
+.hero-title-rule {
+  width: 60px;
+  height: 1px;
+  background: linear-gradient(90deg, #c9956c, transparent);
+  margin-bottom: 1rem;
+}
+
+.hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: 'Raleway', sans-serif;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  padding: 5px 14px;
+  border-radius: 0;
+  margin: 0 6px 6px 0;
+  border: 1px solid rgba(201,149,108,0.4);
+  color: rgba(201,149,108,0.75);
+  background: transparent;
+}
+
+.initials-circle {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background: transparent;
+  border: 1px solid #c9956c;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Cinzel', serif;
+  font-size: 22px;
+  font-weight: 400;
+  color: #c9956c;
+  flex-shrink: 0;
+  position: relative;
+  z-index: 1;
+}
+
+/* outer faint ring */
+.initials-circle::before {
+  content: '';
+  position: absolute;
+  inset: -5px;
+  border-radius: 50%;
+  border: 1px solid rgba(201,149,108,0.2);
+}
+
+
+
+  /* ── Section labels & headings ── */
+
+  .section-heading {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(22px, 3vw, 30px);
+    font-weight: 400;
+    margin: 0 0 1rem;
+    line-height: 1.2;
+    color: #F8F0E8;
+  }
+
+  .section-body {
+    font-size: 14px;
+    line-height: 1.85;
+    color: #F8F0E8;
+    margin: 0;
+  }
+
+  /* ── Cards ── */
+  .card-base {
+    background: #fff;
+    border-radius: 16px;
+    padding: 1.5rem;
+    height: 100%;
+  }
+
+  .card-accent {
+    border-radius: 16px;
+    position: relative;
+    background: linear-gradient(145deg, #100c0c, #1c1515, #100c0c) !important;
+    overflow: hidden;
+    width: 100%;
+    flex-shrink: 0;
+  }
+
+  
+.card-accent::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 3px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    var(--rose-gold),
+    var(--rose-gold-light),
+    var(--rose-gold),
+    transparent
+  );
+}
+
+  /* ── Timeline ── */
+  .tl-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+     margin-bottom: 2rem;
+  }
+
+  .tl-item {
+    display: flex;
+    gap: 14px;
+    padding-bottom: 1.5rem;
+    position: relative;
+  }
+
+  .tl-item:not(:last-child)::after {
+    content: '';
+    position: absolute;
+    left: 19px;
+    top: 40px;
+    width: 1px;
+    height: calc(100% - 24px);
+    background: #C9956C;
+  }
+
+  .tl-dot {
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    background: #1A1818;
+    border: 1px solid #C9956C;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+
+  .tl-dot i {
+    font-size: 14px;
+    color: #C9956C;
+  }
+
+  .tl-title {
+    font-weight: 500;
+    font-size: 13px;
+    margin: 0 0 3px;
+    color: #C9956C;
+  }
+
+  .tl-sub {
+    font-size: 12px;
+    color: #F8F0E8;
+    margin: 0;
+    line-height: 1.6;
+  }
+
+/* ── Stat cards ── */
+.stat-card {
+  background: #111010;
+  border: 1px solid #2a2020;
+  border-radius: 0;
+  padding: 1.5rem 1rem;
+  text-align: center;
+  position: relative;
+}
+
+.stat-card::before,
+.stat-card::after {
+  content: '';
+  position: absolute;
+  width: 15px;
+  height: 15px;
+  border-color: #c9956c;
+  border-style: solid;
+}
+
+.stat-card::before {
+  top: 6px;
+  left: 6px;
+  border-width: 1px 0 0 1px;
+}
+
+.stat-card::after {
+  bottom: 6px;
+  right: 6px;
+  border-width: 0 1px 1px 0;
+}
+
+.stat-num {
+  font-family: 'Cinzel', serif;
+  font-size: 36px;
+  font-weight: 500;
+  line-height: 1;
+  display: block;
+  margin-bottom: 8px;
+  background: linear-gradient(90deg, #fff 30%, #e8c4a8 50%, #fff 70%);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: shimmer 5s linear infinite;
+}
+
+.stat-lbl {
+  font-family: 'Raleway', sans-serif;
+  font-size: 10px;
+  font-weight: 300;
+  color: #9a6b48;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+}
+
+@keyframes shimmer {
+  0%   { background-position: -200% center; }
+  100% { background-position:  200% center; }
+}
+
+  /* ── About image ── */
+.about-img-wrapper {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+}
+
+.about-img {
+  width: 100%;
+  border: 1px solid #c9956c;
+  max-height: 700px;
+  object-fit: cover;
+  object-position: center;
+  border-radius: 0;
+  display: block;
+}
+
+/* top-left corner */
+.about-img-wrapper::before {
+  content: '';
+  position: absolute;
+  top: -10px;
+  left: -10px;
+  width: 48px;
+  height: 48px;
+  border-top: 1px solid #c9956c;
+  border-left: 1px solid #c9956c;
+  z-index: 2;
+  pointer-events: none;
+}
+
+/* bottom-right corner */
+.about-img-wrapper::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  right: -10px;
+  width: 48px;
+  height: 48px;
+  border-bottom: 1px solid #c9956c;
+  border-right: 1px solid #c9956c;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.about-img2-wrapper {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  min-height: 300px;
+}
+
+.about-img2 {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top center;
+  display: block;
+  border-radius: 0;
+  border: 1px solid #c9956c;
+}
+
+/* top-left corner */
+.about-img2-wrapper::before {
+  content: '';
+  position: absolute;
+  top: -10px;
+  left: -10px;
+  width: 48px;
+  height: 48px;
+  border-top: 1px solid #c9956c;
+  border-left: 1px solid #c9956c;
+  z-index: 2;
+  pointer-events: none;
+}
+
+/* bottom-right corner */
+.about-img2-wrapper::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  right: -10px;
+  width: 48px;
+  height: 48px;
+  border-bottom: 1px solid #c9956c;
+  border-right: 1px solid #c9956c;
+  z-index: 2;
+  pointer-events: none;
+}
+
+  /* ── CTA strip ── */
+ .cta-strip {
+  background: #111010;
+  border: 1px solid #252020;
+  border-radius: 0;
+  padding: 1.75rem 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-top: 2.5rem;
+  position: relative;
+  overflow: hidden;
+}
+
+/* top gradient rule */
+.cta-strip::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, #c9956c, #e8c4a8, #c9956c, transparent);
+}
+
+/* subtle background glow */
+.cta-strip::after {
+  content: '';
+  position: absolute;
+  left: -60px; top: 50%;
+  transform: translateY(-50%);
+  width: 300px; height: 200px;
+  background: radial-gradient(ellipse, rgba(201,149,108,0.06), transparent 70%);
+  pointer-events: none;
+}
+
+.cta-btn {
+  font-family: 'Raleway', sans-serif;
+  font-size: 10px;
+  font-weight: 300;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  padding: 12px 26px;
+  border-radius: 0;
+  border: 1px solid #c9956c;
+  background: transparent;
+  color: #e8c4a8;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+  transition: background 0.3s ease, color 0.3s ease;
+  position: relative;
+  z-index: 1;
+}
+
+.cta-btn:hover {
+  background: #c9956c;
+  color: #080808;
+  text-decoration: none;
+}
+
+  /* ── Wrapper ── */
+  .about_wrapper2 {
+   padding: 2rem 0 3rem;
+    background: #080808;
+  }
+
+/* ─────────────────────────────────────────
+   RESPONSIVE BREAKPOINTS
+───────────────────────────────────────── */
+
+/* ── Tablet (≤768px) ── */
+@media (max-width: 768px) {
+  .hero-strip {
+    padding: 2rem 1.5rem;
+    gap: 1.25rem;
+  }
+
+  .initials-circle {
+    width: 64px;
+    height: 64px;
+    font-size: 18px;
+  }
+
+  .stat-num {
+    font-size: 30px;
+  }
+
+  .stat-lbl {
+    font-size: 10px;
+    letter-spacing: 2px;
+  }
+
+  .stat-card {
+    padding: 1.25rem 0.5rem;
+  }
+
+  .cta-strip {
+    padding: 1.5rem;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .cta-btn {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .about-img {
+    max-height: 480px;
+  }
+
+  .about-img2-wrapper {
+    min-height: 260px;
+  }
+}
+
+/* ── Mobile (≤576px) ── */
+@media (max-width: 576px) {
+  .about_wrapper2 {
+    padding: 1.5rem 0 2rem;
+  }
+
+  /* Hero strip — stack vertically, hide initials circle */
+  .hero-strip {
+    padding: 1.75rem 1.25rem;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+    margin-top: 0.5rem;
+    margin-bottom: 1.75rem;
+  }
+
+  .initials-circle {
+    display: none;
+  }
+
+  .hero-badge {
+    font-size: 10px;
+    letter-spacing: 1.5px;
+    padding: 4px 10px;
+    margin: 0 4px 5px 0;
+  }
+
+  /* Section headings */
+  .section-heading {
+    font-size: clamp(20px, 6vw, 26px);
+  }
+
+  .section-body {
+    font-size: 13.5px;
+  }
+
+  /* Cards — full width, comfortable padding */
+  .card-accent {
+    width: 100%;
+    padding: 1.25rem;
+  }
+
+  .card-base {
+    padding: 1.25rem;
+  }
+
+  /* Timeline tighter on small screens */
+  .tl-item {
+    gap: 12px;
+    padding-bottom: 1.25rem;
+  }
+
+  .tl-dot {
+    width: 32px;
+    height: 32px;
+  }
+
+  .tl-dot i {
+    font-size: 12px;
+  }
+
+  .tl-item:not(:last-child)::after {
+    left: 16px;
+    top: 34px;
+  }
+
+  .tl-title {
+    font-size: 12px;
+  }
+
+  .tl-sub {
+    font-size: 11.5px;
+  }
+
+  /* Stat cards — smaller numbers */
+  .stat-num {
+    font-size: 24px;
+  }
+
+  .stat-lbl {
+    font-size: 10px;
+    letter-spacing: 1.5px;
+  }
+
+  .stat-card {
+    padding: 1rem 0.4rem;
+  }
+
+  /* Expertise chips wrap cleanly */
+  .hero-badge {
+    font-size: 10px;
+  }
+
+  /* About images — cap height on mobile */
+  .about-img {
+    max-height: 360px;
+  }
+
+  .about-img-wrapper::before,
+  .about-img-wrapper::after,
+  .about-img2-wrapper::before,
+  .about-img2-wrapper::after {
+    width: 32px;
+    height: 32px;
+  }
+
+  .about-img2-wrapper {
+    min-height: 220px;
+  }
+
+  /* CTA strip */
+  .cta-strip {
+    padding: 1.25rem;
+    margin-top: 2rem;
+  }
+
+  .cta-strip p {
+    font-size: 12px !important;
+  }
+
+  .cta-btn {
+    font-size: 9px;
+    letter-spacing: 2px;
+    padding: 11px 20px;
+  }
+
+  /* Spacing utilities */
+  .mb-5 {
+    margin-bottom: 2rem !important;
+  }
+
+  .mt-5 {
+    margin-top: 2rem !important;
+  }
+}
+
+/* ── Very small screens (≤380px) ── */
+@media (max-width: 380px) {
+  .hero-strip {
+    padding: 1.5rem 1rem;
+  }
+
+  .stat-num {
+    font-size: 20px;
+  }
+
+  .stat-lbl {
+    font-size: 10px;
+    letter-spacing: 1px;
+  }
+
+  .hero-badge {
+    font-size: 10px;
+    padding: 3px 8px;
+    letter-spacing: 1px;
+  }
+}

@@ -1,0 +1,269 @@
+/* About.css */
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Cinzel:wght@400;500;600&family=Raleway:wght@200;300;400&display=swap');
+
+.about-root {
+  font-family: 'Raleway', sans-serif;
+  overflow: hidden;
+  padding: 0;
+  
+  background: #0d0b0b;
+  position: relative;
+}
+
+
+/* ── Image column ── */
+.about-image-side {
+  position: relative;
+  min-height: 700px;
+  overflow: hidden;
+}
+
+.about-img-inner {
+  position: absolute;
+  inset: 0;
+}
+
+.about-img-inner img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top center;
+  display: block;
+  filter: brightness(0.8) saturate(0.85);
+}
+
+/* corner brackets on image */
+.about-img-inner::before {
+  content: '';
+  position: absolute;
+  top: 16px; left: 16px;
+  width: 48px; height: 48px;
+  border-top: 2px solid #c9956c;
+  border-left: 2px solid #c9956c;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.about-img-inner::after {
+  content: '';
+  position: absolute;
+  bottom: 16px; right: 16px;
+  width: 48px; height: 48px;
+  border-bottom: 2px solid #c9956c;
+  border-right: 2px solid #c9956c;
+  z-index: 2;
+  pointer-events: none;
+}
+
+/* ── Content column ── */
+.about-content-side {
+  padding: 60px 48px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  border-left: 1px solid #252020;
+  background: linear-gradient(135deg, #111010 0%, #0d0b0b 60%, #130f0f 100%);
+  position: relative;
+  overflow: hidden;
+}
+
+/* diagonal pattern */
+.about-content-side::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: repeating-linear-gradient(
+    45deg,
+    transparent,
+    transparent 30px,
+    rgba(201,149,108,0.025) 30px,
+    rgba(201,149,108,0.025) 31px
+  );
+  pointer-events: none;
+}
+
+/* radial glow top-right */
+.about-content-side::after {
+  content: '';
+  position: absolute;
+  top: 0; right: 0;
+  width: 300px; height: 300px;
+  background: radial-gradient(circle at top right, rgba(201,149,108,0.08), transparent 70%);
+  pointer-events: none;
+}
+
+/* ── Eyebrow ── */
+.about-eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 20px;
+  position: relative;
+  z-index: 1;
+}
+
+.about-eyebrow::before {
+  content: '';
+  width: 6px; height: 6px;
+  background: #C9956C;
+  transform: rotate(45deg);
+  flex-shrink: 0;
+}
+
+.about-eyebrow h4 {
+  font-family: 'Cinzel', serif;
+  font-size: 15px;
+  font-weight: 400;
+  letter-spacing: 5px;
+  line-height: 1;
+  text-transform: uppercase;
+  color: #C9956C;
+  margin: 0;
+}
+
+.about-eyebrow h4::after {
+  content: '';
+  display: inline-block;
+  width: 28px;
+  height: 1px;
+  background: linear-gradient(90deg, #C9956C, transparent);
+  margin-left: 12px;
+  vertical-align: middle;
+}
+
+/* ── Name ── */
+.about-name {
+  font-family: 'Cinzel', serif;
+  font-size: clamp(28px, 3.5vw, 44px);
+  font-weight: 500;
+  letter-spacing: 4px;
+  line-height: 1.15;
+  margin: 0 0 6px;
+  background: linear-gradient(90deg, #F8F0E8 20%, #e8c4a8 50%, #fff 80%);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: shimmer 6s linear infinite;
+  position: relative;
+  z-index: 1;
+}
+
+/* thin rule under name */
+.about-name-rule {
+  width: 60px;
+  height: 1px;
+  background: linear-gradient(90deg, #C9956C, transparent);
+  margin-bottom: 24px;
+  position: relative;
+  z-index: 1;
+}
+
+/* ── Bio ── */
+.about-bio {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 17px;
+  font-weight: 300;
+  line-height: 1.9;
+  color: #F8F0E8;
+  margin: 0 0 28px;
+  letter-spacing: 0.3px;
+  position: relative;
+  z-index: 1;
+}
+
+/* ── Badges ── */
+.about-badges{
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 28px;
+}
+
+.about-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: 'Raleway', sans-serif;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  padding: 5px 14px;
+  border-radius: 0;
+  margin: 0 6px 6px 0;
+  border: 1px solid rgba(201,149,108,0.4);
+  color: rgba(201,149,108,0.75);
+  background: transparent;
+}
+
+
+/* ── Filter pills ── */
+
+
+/* ── CTA ── */
+.abt-foot {
+  display: flex;
+  justify-content: start;
+  margin-top: 36px;
+  position: relative;
+  z-index: 1;
+}
+
+.abt-btn {
+  font-family: 'Raleway', sans-serif;
+  font-size: 10px;
+  font-weight: 300;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  padding: 12px 26px;
+  border-radius: 0;
+  border: 1px solid #c9956c;
+  background: transparent;
+  color: #e8c4a8;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+  transition: background 0.3s ease, color 0.3s ease;
+}
+
+.abt-btn:hover {
+  background: #c9956c;
+  color: #080808;
+  text-decoration: none;
+}
+
+@keyframes shimmer {
+  0%   { background-position: -200% center; }
+  100% { background-position:  200% center; }
+}
+
+/* ── Desktop ── */
+@media (min-width: 991px) {
+  .about-root { min-height: 800px; }
+  .about-image-side { min-height: 800px; }
+  .about-content-side { padding: 80px 70px; }
+  .about-bio { font-size: 18px; max-width: 620px; }
+}
+
+/* ── Tablet ── */
+@media (min-width: 768px) and (max-width: 990px) {
+  .about-content-side { padding: 50px 40px; }
+  .about-bio { font-size: 15px; }
+}
+
+/* ── Mobile ── */
+@media (max-width: 767px) {
+  .about-image-side { min-height: 420px; }
+  .about-content-side {
+    padding: 36px 24px;
+    border-left: none;
+    border-top: 1px solid #252020;
+  }
+  .about-bio { font-size: 15px; }
+  .about-badges { gap: 6px }
+  .about-badge { font-size: 9px; padding: 4px 12px; }
+}

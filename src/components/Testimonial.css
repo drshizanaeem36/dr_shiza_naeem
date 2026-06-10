@@ -1,0 +1,317 @@
+@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Jost:wght@300;400;500&display=swap");
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --gold: #c3ae91;
+  --rose-gold: #c9956c;
+  --gold-pale: #e8c4a8;
+  --ivory: #f8f0e8;
+  --charcoal: #1a1818;
+  --midnight: #080808;
+  --border: #e8e0d0;
+  --card-bg: #ffffff;
+}
+
+body {
+  background-color: var(--midnight);
+  color: var(--charcoal);
+  font-family: "Jost", sans-serif;
+}
+
+/* ── HERO ── */
+.testimonials-hero {
+  padding: 8rem 0 0;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+.testimonials-hero::before {
+  content: "";
+  position: absolute;
+  top: -40px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(ellipse, rgba(201, 168, 76, 0.08) 0%, transparent 70%);
+  pointer-events: none;
+}
+.hero-eyebrow {
+  font-family: "Jost", sans-serif;
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--rose-gold);
+  margin-bottom: 1.5rem;
+}
+.hero-title {
+  font-family: "Cinzel", serif;
+  font-size: clamp(28px, 5vw, 44px);
+  font-weight: 500;
+  color: #f8f0e8;
+  margin: 0 0 0.75rem;
+  line-height: 1.1;
+  letter-spacing: 4px;
+  background: linear-gradient(90deg, #fff 20%, #e8c4a8 50%, #fff 80%);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: shimmer 6s linear infinite;
+}
+
+.hero-title em {
+  font-family: "Cormorant Garamond", serif;
+  font-style: italic;
+  font-weight: 300;
+  -webkit-text-fill-color: transparent;
+}
+
+.hero-subtitle {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 1.25rem;
+  font-weight: 300;
+  color: var(--gold-pale);
+  max-width: 540px;
+  margin: 0 auto 3rem;
+  line-height: 1.8;
+}
+
+/* ── Filter pills ── */
+.filter-section {
+  padding: 1rem 0 1rem;
+}
+
+.filter-scrollwrap {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.filter-scrollwrap .filter-pill {
+  display: inline-flex;
+  align-items: center;
+  font-family: "Raleway", sans-serif;
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  padding: 6px 14px;
+  border-radius: 0;
+  border: 1px solid #c9956c;
+  color: #c9956c;
+  background: transparent;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  box-shadow: none;
+  outline: none;
+  line-height: normal;
+}
+
+.filter-scrollwrap .filter-pill:hover,
+.filter-scrollwrap .filter-pill.active {
+  background: #c9956c;
+  border-color: #c9956c;
+  color: #080808;
+}
+
+.filter-scrollwrap .filter-pill:focus {
+  box-shadow: none;
+  outline: none;
+}
+
+/* ── TESTIMONIAL CARDS ── */
+.testimonials-grid {
+  padding: 3rem 0 6rem;
+  background: #0d0b0b;
+}
+
+.testimonial-card {
+  background: linear-gradient(145deg, #100c0c, #1c1515, #100c0c);
+  border: 1px solid #252020;
+  border-radius: 0;
+  padding: 2.2rem 2rem;
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+/* top gold bar — Post 2 signature */
+.testimonial-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, #c9956c, #e8c4a8, #c9956c, transparent);
+}
+
+.testimonial-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(201, 149, 108, 0.45);
+  box-shadow: 0 12px 40px rgba(201, 149, 108, 0.08);
+}
+
+.quote-mark {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 5rem;
+  line-height: 0.6;
+  color: #c9956c;
+  opacity: 0.3;
+  margin-bottom: 1rem;
+  font-style: italic;
+  user-select: none;
+}
+
+.testimonial-text {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.1rem;
+  font-style: italic;
+  font-weight: 400;
+  line-height: 1.85;
+  color: #f8f0e8;
+  margin-bottom: 0;
+  text-align: center;
+}
+
+.testimonial-footer {
+  border-top: 1px solid rgba(201, 149, 108, 0.2);
+}
+
+.patient-name {
+  font-family: 'Cinzel', serif;
+  font-size: 0.8rem;
+  font-weight: 500;
+  letter-spacing: 1px;
+  color: #f8f0e8;
+}
+
+.procedure-tag {
+  font-family: 'Raleway', sans-serif;
+  font-size: 0.65rem;
+  font-weight: 300;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  color: #c9956c;
+  margin-top: 2px;
+}
+
+.patient-meta {
+  font-family: 'Raleway', sans-serif;
+  font-size: 0.65rem;
+  font-weight: 300;
+  letter-spacing: 1px;
+  color: rgba(248, 240, 232, 0.4);
+  margin-top: 2px;
+}
+
+.quote-attr {
+  font-family: 'Raleway', sans-serif;
+  font-size: 9px;
+  letter-spacing: 4px;
+  color: #c9956c;
+  text-transform: uppercase;
+}
+
+
+/* ── FEATURED QUOTE ── */
+.featured-quote-section {
+  background: var(--charcoal);
+  padding: 6rem 0;
+  text-align: center;
+}
+.featured-quote-text {
+  font-family: "Playfair Display", serif;
+  font-style: italic;
+  font-size: clamp(1.4rem, 3vw, 2.1rem);
+  font-weight: 400;
+  color: var(--rose-gold);
+  line-height: 1.6;
+  max-width: 720px;
+  margin: 0 auto 2rem;
+}
+
+/* ── CTA ── */
+.cta-section {
+  padding: 7rem 0;
+  text-align: center;
+  background: var(--midnight);
+}
+.cta-title {
+  font-family: "Playfair Display", serif;
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 700;
+  color: var(--ivory);
+  margin-bottom: 1rem;
+  line-height: 1.2;
+}
+.cta-body {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 1.15rem;
+  font-weight: 300;
+  color: var(--gold-pale);
+  margin-bottom: 2.5rem;
+}
+.cta-primary {
+  font-family: "Jost", sans-serif;
+  font-size: 0.78rem;
+  font-weight: 500;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  background: var(--charcoal);
+  color: white;
+  border: 1px solid var(--charcoal);
+  padding: 1rem 2.8rem;
+  cursor: pointer;
+  text-decoration: none;
+  display: inline-block;
+  transition: all 0.25s;
+  margin-right: 1rem;
+}
+.cta-primary:hover {
+  background: var(--gold);
+  border-color: var(--gold);
+  color: white;
+}
+.cta-secondary {
+  font-family: "Jost", sans-serif;
+  font-size: 0.78rem;
+  font-weight: 500;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  background: transparent;
+  color: var(--charcoal);
+  border: 1px solid var(--border);
+  padding: 1rem 2.8rem;
+  cursor: pointer;
+  text-decoration: none;
+  display: inline-block;
+  transition: all 0.25s;
+}
+.cta-secondary:hover {
+  border-color: var(--gold);
+  color: var(--gold);
+}
+
+@media (max-width: 767px) {
+  .testimonials-hero {
+    padding: 5rem 0 4rem;
+  }
+  .stat-divider {
+    display: none;
+  }
+  .cta-primary,
+  .cta-secondary {
+    display: block;
+    margin: 0.5rem auto;
+    max-width: 280px;
+  }
+}

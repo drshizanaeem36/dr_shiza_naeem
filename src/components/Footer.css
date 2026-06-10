@@ -1,0 +1,336 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Cinzel:wght@400;500&family=Raleway:wght@200;300;400&display=swap');
+
+:root {
+  --midnight:   #080808;
+  --charcoal:   #1a1818;
+  --rose-gold:  #c9956c;
+  --blush-gilt: #e8c4a8;
+  --cream:      #f8f0e8;
+}
+
+/* ── Root ── */
+.ft-root {
+  background: var(--midnight);
+  font-family: 'Raleway', sans-serif;
+  position: relative;
+}
+
+/* ── Top ornament ── */
+.ft-top-ornament {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 0 60px;
+  margin-bottom: 0;
+}
+
+.ft-orn-line {
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(201,149,108,0.4), transparent);
+}
+
+.ft-orn-diamond {
+  width: 5px;
+  height: 5px;
+  background: var(--rose-gold);
+  transform: rotate(45deg);
+  flex-shrink: 0;
+}
+
+/* ── Top grid ── */
+.ft-top {
+  display: grid;
+  grid-template-columns: 1.3fr 0.85fr 1fr;
+  border-top: 1px solid rgba(201,149,108,0.12);
+  border-bottom: 1px solid rgba(201,149,108,0.12);
+}
+
+.ft-col {
+  padding: 60px 52px;
+  position: relative;
+}
+
+.ft-col + .ft-col::before {
+  content: '';
+  position: absolute;
+  left: 0; top: 20%; bottom: 20%;
+  width: 1px;
+  background: linear-gradient(180deg, transparent, rgba(201,149,108,0.2), transparent);
+}
+
+/* ── Brand column ── */
+.ft-logo {
+  height: 75px;
+  width: auto;
+  object-fit: cover;
+  display: block;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+
+
+
+.ft-logo-sub {
+  font-family: 'Raleway', sans-serif;
+  font-size: 9px;
+  font-weight: 300;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: var(--rose-gold);
+  margin: 8px 0 18px;
+}
+
+.ft-tagline {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 15px;
+  font-weight: 300;
+  color: var(--cream);
+  line-height: 1.8;
+  margin: 0;
+  letter-spacing: 0.3px;
+}
+
+/* ── Column label ── */
+.ft-col-label {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-family: 'Raleway', sans-serif;
+  font-size: 9px;
+  font-weight: 300;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: var(--rose-gold);
+  margin-bottom: 28px;
+}
+
+.ft-col-label-line {
+  display: inline-block;
+  width: 20px;
+  height: 1px;
+  background: var(--rose-gold);
+  flex-shrink: 0;
+}
+
+/* ── Links ── */
+.ft-links {
+  list-style: none;
+  padding: 0; margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.ft-links a {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-family: 'Raleway', sans-serif;
+  font-size: 11px;
+  font-weight: 300;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  color: var(--cream);
+  text-decoration: none;
+  transition: color 0.25s ease, gap 0.25s ease;
+}
+
+.ft-link-arrow {
+  color: var(--rose-gold);
+  font-size: 10px;
+  opacity: 0;
+  transition: opacity 0.25s ease;
+  transform: translateX(-4px);
+  transition: opacity 0.25s, transform 0.25s;
+}
+
+.ft-links a:hover {
+  color: var(--rose-gold);
+}
+
+.ft-links a:hover .ft-link-arrow {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* ── Contact ── */
+.ft-contact-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  margin-bottom: 18px;
+  font-family: 'Raleway', sans-serif;
+  font-size: 11px;
+  font-weight: 300;
+  letter-spacing: 1.5px;
+  color: rgba(248,240,232,0.55);
+  line-height: 1.6;
+}
+
+.ft-contact-item i {
+  color: var(--rose-gold);
+  font-size: 12px;
+  width: 14px;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.ft-contact-item span {
+  transition: color 0.25s;
+}
+
+.ft-contact-item:hover span {
+  color: var(--blush-gilt);
+}
+
+/* ── Bottom bar ── */
+.ft-bottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 22px 52px;
+  flex-wrap: wrap;
+  gap: 14px;
+}
+
+.ft-copy {
+  font-family: 'Raleway', sans-serif;
+  font-size: 9px;
+  font-weight: 300;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--cream);
+  margin: 0;
+}
+
+.ft-copy a {
+  color: var(--rose-gold);
+  text-decoration: none;
+  transition: opacity 0.2s;
+}
+
+.ft-copy a:hover { opacity: 1; }
+
+/* ── Socials ── */
+.ft-socials {
+  display: flex;
+  gap: 10px;
+}
+
+.ft-social-btn {
+  width: 32px;
+  height: 32px;
+  border: 1px solid rgba(201,149,108,0.2);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: rgba(201,149,108,0.5);
+  font-size: 11px;
+  text-decoration: none;
+  transition: border-color 0.25s, color 0.25s, background 0.25s;
+}
+
+.ft-social-btn:hover {
+  border-color: var(--rose-gold);
+  color: var(--rose-gold);
+  background: rgba(201,149,108,0.06);
+}
+
+/* ── Responsive ── */
+@media (max-width: 990px) {
+  .ft-top {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .ft-col--brand {
+    grid-column: 1 / -1;
+    border-bottom: 1px solid rgba(201,149,108,0.1);
+    padding: 48px 40px 36px;
+   
+  }
+
+  .ft-col--links,
+  .ft-col--contact {
+    padding: 40px;
+  }
+
+  .ft-bottom {
+    padding: 20px 40px;
+  }
+
+   .ft-logo {
+    height: 50px;
+
+ }
+}
+
+@media (max-width: 600px) {
+  .ft-top { grid-template-columns: 1fr; }
+
+  .ft-col,
+  .ft-col--brand,
+  .ft-col--links,
+  .ft-col--contact {
+    padding: 36px 28px;
+    text-align: center;
+    grid-column: unset;
+  }
+
+  .ft-col + .ft-col::before { display: none; }
+
+  .ft-col--brand {
+    border-bottom: 1px solid rgba(201,149,108,0.1);
+  }
+
+  .ft-logo,
+  .ft-col-label {
+    justify-content: center;
+  }
+
+  .ft-logo-divider {
+    margin: 0 auto 14px;
+  }
+
+  .ft-links {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 12px 20px;
+  }
+
+  .ft-link-arrow { display: none; }
+
+  .ft-contact-item { justify-content: center; }
+
+  .ft-bottom {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 20px 28px;
+  }
+
+  .ft-top-ornament { padding: 0 28px; }
+}
+
+
+@media (max-width: 480px) {
+  .ft-logo {
+    height: 50px;
+  }
+}
+
+@media (max-width: 600px) {
+  .ft-brand {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+  }
+
+  .ft-logo {
+    margin: 0 auto;
+    height: 75px;
+  }
+}
