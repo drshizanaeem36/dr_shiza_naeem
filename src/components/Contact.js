@@ -31,7 +31,7 @@ const Contact = () => {
             <span className="ct-info-label">Email</span>
             <div className="ct-info-val">
               <i className="fa-solid fa-envelope" aria-hidden="true" />
-              hello@drshizanaeem.com
+              dr.shizanaeem36@gmail.com
             </div>
           </div>
 
@@ -39,7 +39,7 @@ const Contact = () => {
             <span className="ct-info-label">Phone</span>
             <div className="ct-info-val">
               <i className="fa-solid fa-phone" aria-hidden="true" />
-              202-555-0188
+              0339-0100389
             </div>
           </div>
 
