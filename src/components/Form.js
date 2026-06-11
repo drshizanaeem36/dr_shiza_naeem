@@ -11,42 +11,66 @@ const Form = () => {
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
-    // Clear field error on change
     if (fieldErrors[name]) {
       setFieldErrors((prev) => ({ ...prev, [name]: null }));
     }
   };
 
+  const validate = () => {
+    const errors = {};
+    if (!formData.name.trim()) errors.name = "Name is required";
+    else if (formData.name.length > 100) errors.name = "Name cannot exceed 100 characters";
+
+    if (!formData.phone.trim()) errors.phone = "Phone number is required";
+    else if (!/^[+]?[\d\s\-(). ]{7,20}$/.test(formData.phone)) errors.phone = "Invalid phone number";
+
+    if (!formData.email.trim()) errors.email = "Email is required";
+    else if (!/^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,})+$/.test(formData.email))
+      errors.email = "Please enter a valid email";
+
+    if (!formData.message.trim()) errors.message = "Message is required";
+    else if (formData.message.length > 2000) errors.message = "Message cannot exceed 2000 characters";
+
+    return errors;
+  };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setStatus({ loading: false, success: null, error: null });
+
+    // Client-side validation
+    const errors = validate();
+    if (Object.keys(errors).length > 0) {
+      setFieldErrors(errors);
+      setStatus({ loading: false, success: null, error: "Please fix the errors above." });
+      return;
+    }
+
     setStatus({ loading: true, success: null, error: null });
-    setFieldErrors({});
+
+    const body = new URLSearchParams({
+      "form-name": "contact",
+      ...formData,
+    }).toString();
 
     try {
-      const res = await fetch(`${process.env.REACT_APP_API_URL}/api/contact`, {
+      const res = await fetch("/", {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(formData),
+        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+        body,
       });
 
-      const data = await res.json();
-
-      if (!res.ok) {
-        // Handle validation errors (422)
-        if (data.errors) {
-          const mapped = {};
-          data.errors.forEach(({ field, message }) => {
-            mapped[field] = message;
-          });
-          setFieldErrors(mapped);
-          setStatus({ loading: false, success: null, error: "Please fix the errors above." });
-          return;
-        }
-        throw new Error(data.message || "Something went wrong.");
+      if (res.ok) {
+        setStatus({
+          loading: false,
+          success: "Your message has been sent successfully!",
+          error: null,
+        });
+        setFormData(initialState);
+        setFieldErrors({});
+      } else {
+        throw new Error("Submission failed. Please try again.");
       }
-
-      setStatus({ loading: false, success: data.message, error: null });
-      setFormData(initialState);
     } catch (err) {
       setStatus({ loading: false, success: null, error: err.message });
     }
@@ -58,10 +82,30 @@ const Form = () => {
         <h4>Send Message</h4>
       </div>
 
-      {status.success && <div className="ct-alert ct-alert--success">{status.success}</div>}
-      {status.error && <div className="ct-alert ct-alert--error">{status.error}</div>}
+      {status.success && (
+        <div className="ct-alert ct-alert--success">{status.success}</div>
+      )}
+      {status.error && (
+        <div className="ct-alert ct-alert--error">{status.error}</div>
+      )}
 
-      <form onSubmit={handleSubmit} noValidate netlify>
+      {/* Hidden HTML form so Netlify detects it at build time */}
+      <form name="contact" data-netlify="true" hidden>
+        <input type="text" name="name" />
+        <input type="tel" name="phone" />
+        <input type="email" name="email" />
+        <textarea name="message" />
+      </form>
+
+      {/* Actual interactive form */}
+      <form
+        onSubmit={handleSubmit}
+        noValidate
+        name="contact"
+        data-netlify="true"
+      >
+        <input type="hidden" name="form-name" value="contact" />
+
         <div className="ct-form-row">
           <div className="ct-field">
             <input
@@ -72,7 +116,9 @@ const Form = () => {
               value={formData.name}
               onChange={handleChange}
             />
-            {fieldErrors.name && <span className="ct-field-error">{fieldErrors.name}</span>}
+            {fieldErrors.name && (
+              <span className="ct-field-error">{fieldErrors.name}</span>
+            )}
           </div>
 
           <div className="ct-field">
@@ -84,7 +130,9 @@ const Form = () => {
               value={formData.phone}
               onChange={handleChange}
             />
-            {fieldErrors.phone && <span className="ct-field-error">{fieldErrors.phone}</span>}
+            {fieldErrors.phone && (
+              <span className="ct-field-error">{fieldErrors.phone}</span>
+            )}
           </div>
         </div>
 
@@ -97,7 +145,9 @@ const Form = () => {
             value={formData.email}
             onChange={handleChange}
           />
-          {fieldErrors.email && <span className="ct-field-error">{fieldErrors.email}</span>}
+          {fieldErrors.email && (
+            <span className="ct-field-error">{fieldErrors.email}</span>
+          )}
         </div>
 
         <div className="ct-field">
@@ -109,12 +159,16 @@ const Form = () => {
             value={formData.message}
             onChange={handleChange}
           />
-          {fieldErrors.message && <span className="ct-field-error">{fieldErrors.message}</span>}
+          {fieldErrors.message && (
+            <span className="ct-field-error">{fieldErrors.message}</span>
+          )}
         </div>
 
         <button className="ct-submit" type="submit" disabled={status.loading}>
           {status.loading ? "Sending..." : "Submit"}
-          {!status.loading && <i className="fa-solid fa-arrow-right" aria-hidden="true" />}
+          {!status.loading && (
+            <i className="fa-solid fa-arrow-right" aria-hidden="true" />
+          )}
         </button>
       </form>
     </div>
