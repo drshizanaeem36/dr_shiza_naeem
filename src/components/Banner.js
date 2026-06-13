@@ -9,7 +9,7 @@ const Banner = () => {
 
       <div className="banner-content">
        <div className="sp-tag" style={{ marginBottom: "1.5rem", fontSize: "10px", fontWeight: "900" ,fontStyle: "bold"}}>
-           Plastic &amp; Reconstructive Surgery
+           Plastic Reconstructive Surgery &amp; Aesthetic Surgeon
           <span className="sp-tag-diamond" />
           <span className="sp-tag-line" />
         </div>

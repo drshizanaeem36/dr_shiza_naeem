@@ -8,7 +8,7 @@ const About = () => {
         {/* Image Side */}
         <div className="col-lg-5 col-md-5 p-0 about-image-side">
           <div className="about-img-inner">
-            <img src="/images/about.jpg" alt="Dr. Shiza Naeem" width={720} height={1280} />
+            <img src="/images/shizanaeem.jpeg" alt="Dr. Shiza Naeem" width={720} height={1280} />
           </div>
         </div>
 

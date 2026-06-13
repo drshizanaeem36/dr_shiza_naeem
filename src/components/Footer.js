@@ -17,11 +17,10 @@ const Footer = () => {
         {/* Brand */}
         <div className="ft-col ft-col--brand">
           <Link className="ft-brand" to="/">
-            <img src="/images/logo_updated-removebg-preview.png" alt="Dr. Shiza Naeem" className="ft-logo" />
+            <img src="/images/logo3.png" alt="Dr. Shiza Naeem" className="ft-logo" />
           </Link>
-         
-          <p className="ft-logo-sub">Plastic &amp; Aesthetic Surgeon</p>
-          <p className="ft-tagline">
+        
+          <p className="ft-tagline mt-2">
             Redefining beauty with precision,
             <br />
             artistry &amp; compassionate care.

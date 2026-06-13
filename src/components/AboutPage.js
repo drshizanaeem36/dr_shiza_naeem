@@ -24,15 +24,16 @@ const AboutPage = () => {
               <div
                 className="sp-tag"
                 style={{ marginBottom: "1.5rem", fontSize: "10px", fontWeight: "900", fontStyle: "bold" }}>
-                Plastic &amp; Reconstructive Surgery
+                Plastic Reconstructive Surgery &amp; Aesthetic Surgeon
                 <span className="sp-tag-diamond" />
                 <span className="sp-tag-line" />
               </div>
-               <h1 className="hero1-title">
-              Dr <em> Shiza Naeem</em>
-            </h1>
+              <h1 className="hero1-title">
+                Dr <em> Shiza Naeem</em>
+              </h1>
               <div className="hero-title-rule" />
               <div className="d-flex flex-wrap">
+                <span className="hero-badge">Reconstructive and aesthetic surgeon</span>
                 <span className="hero-badge">
                   <i className="fa-solid fa-building-columns fa-xs"></i>
                   FCPS - Plastic Surgery
@@ -41,7 +42,6 @@ const AboutPage = () => {
                   <i className="fa-solid fa-building-columns fa-xs"></i>
                   MBBS · Army Medical College
                 </span>
-                <span className="hero-badge">Reconstructive and aesthetic surgeon</span>
                 <span className="hero-badge">
                   <i className="fa-solid fa-location-dot fa-xs"></i>
                   Lahore, Pakistan
@@ -158,11 +158,11 @@ const AboutPage = () => {
 
           {/* ── Expertise Chips ── */}
           <div className="mb-5 mt-5">
-          <div className="about-eyebrow">
-                  {" "}
-                  <h4>Areas of Expertise</h4>
-                </div>
-            
+            <div className="about-eyebrow">
+              {" "}
+              <h4>Areas of Expertise</h4>
+            </div>
+
             <span className="hero-badge">
               <i className="fa-solid fa-droplet"></i>Liposuction
             </span>
@@ -180,6 +180,15 @@ const AboutPage = () => {
             </span>
             <span className="hero-badge">
               <i className="fa-solid fa-kit-medical"></i>Trauma reconstruction
+            </span>
+            <span className="hero-badge">
+              <i className="fa-solid fa-kit-medical"></i>Aesthetic Procedures
+            </span>
+            <span className="hero-badge">
+              <i className="fa-solid fa-kit-medical"></i>Hair Transplant
+            </span>
+            <span className="hero-badge">
+              <i className="fa-solid fa-kit-medical"></i>Breast Reconstruction
             </span>
           </div>
 
@@ -209,7 +218,7 @@ const AboutPage = () => {
           <div className="row align-items-stretch g-4 mb-2">
             <div className="col-lg-6 d-flex flex-column justify-content-center">
               <div className="card-base card-accent">
-               <div className="about-eyebrow">
+                <div className="about-eyebrow">
                   {" "}
                   <h4>Philosophy</h4>
                 </div>

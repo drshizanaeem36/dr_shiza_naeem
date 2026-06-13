@@ -159,14 +159,11 @@ background: linear-gradient(
 /* ── Service cards grid ── */
 .sp-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  grid-template-columns: repeat(3, 1fr);
   gap: 16px;
+  align-items: stretch;
 }
 
-.sp-grid.single {
-  grid-template-columns: 1fr;
-  max-width: 600px;
-}
 
 /* ── Service card — Post 3 style ── */
 .svc-card {
@@ -180,7 +177,7 @@ background: linear-gradient(
   overflow: hidden;
   transition: transform 0.4s ease;
   cursor: pointer;
-  min-height: 320px;
+  height: 480px; 
 }
 
 .svc-card:hover {
@@ -218,17 +215,14 @@ background: linear-gradient(
 /* ── Card image ── */
 .svc-img-wrap {
   width: 100%;
-  aspect-ratio: 4 / 3;
+  height: 220px;    
   overflow: hidden;
   flex-shrink: 0;
   position: relative;
   z-index: 1;
 }
 
-.svc-card.horizontal .svc-img-wrap {
-  width: 100%;
-  aspect-ratio: 16 / 6;
-}
+
 
 .svc-img-wrap img {
   width: 100%;
@@ -325,3 +319,16 @@ font-family: 'Cormorant Garamond', serif;
   0%   { background-position: -200% center; }
   100% { background-position:  200% center; }
 }
+
+@media (max-width: 768px) {
+  .sp-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 480px) {
+  .sp-grid {
+    grid-template-columns: 1fr;
+  }
+}
+

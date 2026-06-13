@@ -18,7 +18,7 @@ const Navbar = () => {
         <div className="container nav-container">
           {/* Logo */}
           <Link className="navbar-brand" to="/">
-            <img src="/images/logo_updated-removebg-preview.png" alt="Dr. Shiza Naeem" className="navbar-logo" />
+            <img src="/images/logo3.png" alt="Dr. Shiza Naeem" className="navbar-logo" />
           </Link>
 
           {/* Mobile toggler */}

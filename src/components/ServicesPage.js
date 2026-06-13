@@ -2,7 +2,17 @@ import React, { useState } from "react";
 import Banner5 from "./Banner5";
 import "./ServicesPage.css";
 
-const CATEGORIES = ["All", "Facial", "Reconstructive", "Breast", "Body", "Weight Loss", "Burns"];
+const CATEGORIES = [
+  "All",
+  "Facial",
+  "Reconstructive",
+  "Breast",
+  "Body",
+  "Trauma Reconstruction",
+  "Hair Restoration",
+  "Aesthetic Treatments",
+  "Burns",
+];
 
 const services = [
   {
@@ -102,14 +112,52 @@ const services = [
       "Abdominoplasty, or tummy tuck, is a cosmetic surgical procedure that removes excess skin and fat from the abdomen while tightening the underlying muscles. It improves abdominal contour and is often performed after significant weight loss or pregnancy to restore a flatter, firmer appearance.",
   },
   {
-    title: "Weight Loss Surgery",
-    img: "./images/s14.png",
-    icon: "fa-solid fa-weight-scale",
-    category: "Weight Loss",
+    title: "Wound Management",
+    img: "./images/s15.jpg",
+    icon: "fa-solid fa-kit-medical",
+    category: "Trauma Reconstruction",
     description:
-      "Weight loss surgery includes procedures like gastric bypass, sleeve gastrectomy, and gastric banding to aid in significant weight loss. These surgeries work by reducing stomach size or limiting nutrient absorption, helping individuals manage obesity and improve related health conditions.",
+      "Wound management surgery addresses complex and chronic wounds through advanced techniques including debridement, tissue reconstruction, and flap procedures. These targeted interventions accelerate healing, minimize scarring, and restore skin integrity for traumatic, post-surgical, and non-healing wounds.",
     horizontal: true,
   },
+  {
+    title: "Hair Transplant",
+    img: "./images/s17.jpg",
+    icon: "fa-solid fa-scissors",
+    category: "Hair Restoration",
+    description:
+      "Hair transplant surgery restores natural hair growth through advanced techniques including FUE (Follicular Unit Extraction) and FUT (Follicular Unit Transplantation). These precise procedures relocate healthy hair follicles to thinning or balding areas, delivering permanent, natural-looking results with minimal downtime.",
+    horizontal: true,
+  },
+
+  {
+    title: "Botox",
+    img: "./images/s18.jpg",
+    icon: "fa-solid fa-syringe",
+    category: "Aesthetic Treatments",
+    description:
+      "Botox treatment involves precise micro-injections of botulinum toxin to relax overactive facial muscles, smoothing dynamic wrinkles and fine lines. This quick, non-surgical procedure delivers natural-looking rejuvenation with no downtime, targeting areas such as forehead lines, crow's feet, and frown lines.",
+    horizontal: true,
+  },
+  {
+    title: "Dermal Fillers",
+    img: "./images/s19.jpg",
+    icon: "fa-solid fa-droplet",
+    category: "Aesthetic Treatments",
+    description:
+      "Dermal filler treatments restore lost volume and contour facial features using hyaluronic acid-based injections. From plumping lips to defining cheekbones and softening nasolabial folds, fillers deliver immediate, natural-looking enhancement with results lasting six months to two years.",
+    horizontal: true,
+  },
+  {
+    title: "Nano Fat Grafting",
+    img: "./images/s16.jpg",
+    icon: "fa-solid fa-microscope",
+    category: "Aesthetic Treatments",
+    description:
+      "Nano fat grafting is an advanced regenerative procedure that harvests, processes, and reinjects ultra-refined fat cells rich in stem cells and growth factors. This minimally invasive treatment improves skin texture, tone, and elasticity — naturally rejuvenating delicate areas such as under-eyes, fine lines, and aged skin.",
+    horizontal: true,
+  },
+
   {
     title: "Burn Injuries",
     img: "./images/s12.jpg",
@@ -126,7 +174,9 @@ const SECTIONS = [
   { label: "Reconstructive Surgeries", category: "Reconstructive" },
   { label: "Breast Enhancements", category: "Breast" },
   { label: "Body Contouring", category: "Body" },
-  { label: "Weight Loss Solutions", category: "Weight Loss" },
+  { label: "Trauma Reconstruction", category: "Trauma Reconstruction" },
+  { label: "Hair Restoration", category: "Hair Restoration" },
+  { label: "Aesthetic Treatments", category: "Aesthetic Treatments" },
   { label: "Burn Treatments", category: "Burns" },
 ];
 
@@ -148,10 +198,9 @@ const ServiceCard = ({ service, index }) => (
     </div>
     <div className="svc-body">
       <div className="svc-number">{String(index + 1).padStart(2, "0")}</div>
-      
+
       <p className="svc-title">{service.title}</p>
       <p className="svc-desc">{service.description}</p>
-      
     </div>
   </div>
 );
@@ -167,10 +216,7 @@ const SectionDivider = ({ label }) => (
 const ServicesPage = () => {
   const [activeFilter, setActiveFilter] = useState("All");
 
-  const visibleSections =
-    activeFilter === "All"
-      ? SECTIONS
-      : SECTIONS.filter((s) => s.category === activeFilter);
+  const visibleSections = activeFilter === "All" ? SECTIONS : SECTIONS.filter((s) => s.category === activeFilter);
 
   return (
     <div>
@@ -178,7 +224,6 @@ const ServicesPage = () => {
 
       <section id="services" className="services_wrapper sp">
         <div className="container">
-
           {/* ── Page header ── */}
           <div className="sp-header">
             <div className="sp-tag">
@@ -192,8 +237,8 @@ const ServicesPage = () => {
               Our <em>Services</em>
             </h1>
             <p className="sp-subtitle">
-              Dedicated to enhancing your natural beauty and boosting confidence through a range
-              of personalized plastic surgery services.
+              Dedicated to enhancing your natural beauty and boosting confidence through a range of personalized plastic
+              surgery services.
             </p>
 
             {/* ── Filter pills ── */}
@@ -225,7 +270,6 @@ const ServicesPage = () => {
               </div>
             );
           })}
-
         </div>
       </section>
     </div>

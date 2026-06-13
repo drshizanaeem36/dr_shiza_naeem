@@ -2,9 +2,9 @@ import React, { useEffect, useState } from "react";
 import "./Stats.css";
 
 const stats = [
-  { value: "2,400+", label: "Procedures Performed" },
+  { value: "1,500+", label: "Procedures Performed" },
   { value: "98.7%", label: "Patient Satisfaction" },
-  { value: "22", label: "Years of Excellence" },
+  { value: "8+", label: "Years of Excellence" },
   { value: "14", label: "Awards & Recognitions" },
 ];
 

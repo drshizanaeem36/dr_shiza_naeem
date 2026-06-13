@@ -62,23 +62,10 @@
 /* ── Brand column ── */
 .ft-logo {
   height: 75px;
-  width: auto;
+  width: 240px;
   object-fit: cover;
   display: block;
   transition: opacity 0.3s ease, transform 0.3s ease;
-}
-
-
-
-
-.ft-logo-sub {
-  font-family: 'Raleway', sans-serif;
-  font-size: 9px;
-  font-weight: 300;
-  letter-spacing: 4px;
-  text-transform: uppercase;
-  color: var(--rose-gold);
-  margin: 8px 0 18px;
 }
 
 .ft-tagline {

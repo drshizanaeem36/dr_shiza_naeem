@@ -40,15 +40,6 @@ const reviews = [
       "Dr. Shiza Naeem handled my tendon repair surgery with incredible skill. Recovery was smooth and her follow-up care was thorough. I'm fully functional again thanks to her.",
   },
   {
-    name: "Sana Iqbal",
-    role: "Patient",
-    company: "Multan",
-    avatar: "SI",
-    color: "cyan",
-    quote:
-      "My weight loss surgery with Dr. Shiza Naeem changed my life completely. She explained every step clearly, and her team's support during recovery made all the difference.",
-  },
-  {
     name: "Hamza Chaudhry",
     role: "Patient",
     company: "Rawalpindi",
@@ -56,6 +47,15 @@ const reviews = [
     color: "green",
     quote:
       "After my nerve repair procedure, I regained sensation I thought was gone forever. Dr. Shiza Naeem's surgical expertise and compassionate approach make her truly one of a kind.",
+  },
+  {
+    name: "Zara Malik",
+    role: "Patient",
+    company: "Islamabad",
+    avatar: "AM",
+    color: "green",
+    quote:
+      "Botox treatment with Dr. Shiza Naeem gave me a natural, refreshed look while softening fine lines. The procedure was smooth, and the results are subtle yet very effective.",
   },
 ];
 
@@ -66,16 +66,16 @@ export default function ReviewSec() {
     <section id="testimonials1" className="testimonials1-section">
       <div className="container">
         <div className="sv-head">
-        <div className="sp-tag">
-              <span className="sp-tag-line" />
-              <span className="sp-tag-diamond" />
-              Hear from my clients
-              <span className="sp-tag-diamond" />
-              <span className="sp-tag-line" />
-            </div>
-           <h1 className="hero-title">
-              My<em> Testimonial</em>
-            </h1>
+          <div className="sp-tag">
+            <span className="sp-tag-line" />
+            <span className="sp-tag-diamond" />
+            Hear from my clients
+            <span className="sp-tag-diamond" />
+            <span className="sp-tag-line" />
+          </div>
+          <h1 className="hero-title">
+            My<em> Testimonial</em>
+          </h1>
           <p className="rev-desc">
             Don't just take my word for it — see what my clients have to say about their experience working with me. I'm
             proud of the relationships I've built and the impact I've made on their projects.
@@ -106,11 +106,11 @@ export default function ReviewSec() {
           ))}
         </div>
         <div className="sv-foot">
-        <Link className="sv-btn" to="/testimonials">
-          View all testimonials
-          <i className="fa-solid fa-arrow-right" aria-hidden="true" />
-        </Link>
-      </div>
+          <Link className="sv-btn" to="/testimonials">
+            View all testimonials
+            <i className="fa-solid fa-arrow-right" aria-hidden="true" />
+          </Link>
+        </div>
       </div>
     </section>
   );
