@@ -1,3 +1,4 @@
+import { useState } from "react";
 import "./App.css";
 import Home from "./components/Home";
 import ContactPage from "./components/ContactPage";
@@ -8,10 +9,15 @@ import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import ScrollToTop from "./components/ScrollToTop";
 import Testimonial from "./components/Testimonial";
+import LoadingScreen from "./components/LoadingScreen";
 
 function App() {
+  const [loaded, setLoaded] = useState(false);
+
   return (
-    <Router>
+    <>
+      <LoadingScreen hidden={loaded} onReady={() => setLoaded(true)} />
+      <Router>
       <Navbar />
       <ScrollToTop />
       <Routes>
@@ -23,6 +29,7 @@ function App() {
       </Routes>
       <Footer />
     </Router>
+    </>  
   );
 }
 
