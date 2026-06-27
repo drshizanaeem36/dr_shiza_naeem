@@ -50,7 +50,7 @@
 
 @media (min-width: 991px) {
   .banner6-root {
-    background-attachment: fixed;
+    background-attachment: scroll; /* fixed is broken on iOS Safari */
   }
 }
 

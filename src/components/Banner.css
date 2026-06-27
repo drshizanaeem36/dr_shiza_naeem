@@ -103,7 +103,7 @@
   .banner-root {
     min-height: 720px;
     background-position: center;
-    background-attachment: fixed;
+    background-attachment: scroll; /* fixed is broken on iOS Safari */
   }
 
   .banner-content {
