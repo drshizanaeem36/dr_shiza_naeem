@@ -73,12 +73,12 @@ const Footer = () => {
         </p>
         <div className="ft-socials">
           {[
-            { href: "/", icon: "fab fa-instagram", label: "Instagram" },
+            { href: "https://www.instagram.com/drshizanaeemplasticsurgeon?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==", icon: "fab fa-instagram", label: "Instagram" },
             { href: "/", icon: "fab fa-facebook-f", label: "Facebook" },
             { href: "/", icon: "fab fa-twitter", label: "Twitter" },
             { href: "/", icon: "fab fa-linkedin-in", label: "LinkedIn" },
           ].map(({ href, icon, label }) => (
-            <a key={label} className="ft-social-btn" href={href} aria-label={label}>
+            <a key={label} className="ft-social-btn" href={href} aria-label={label} target="_blank" rel="noopener noreferrer">
               <i className={icon} aria-hidden="true" />
             </a>
           ))}

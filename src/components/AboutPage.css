@@ -151,6 +151,9 @@
     line-height: 1.85;
     color: #F8F0E8;
     margin: 0;
+    text-align: justify;
+  text-justify: inter-word;
+  hyphens: auto;
   }
 
   /* ── Cards ── */

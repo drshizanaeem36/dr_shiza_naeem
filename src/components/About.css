@@ -5,7 +5,7 @@
   font-family: 'Raleway', sans-serif;
   overflow: hidden;
   padding: 0;
-  
+
   background: #0d0b0b;
   position: relative;
 }
@@ -44,8 +44,10 @@
 .about-img-inner::before {
   content: '';
   position: absolute;
-  top: 16px; left: 16px;
-  width: 48px; height: 48px;
+  top: 16px;
+  left: 16px;
+  width: 48px;
+  height: 48px;
   border-top: 2px solid #c9956c;
   border-left: 2px solid #c9956c;
   z-index: 2;
@@ -55,8 +57,10 @@
 .about-img-inner::after {
   content: '';
   position: absolute;
-  bottom: 16px; right: 16px;
-  width: 48px; height: 48px;
+  bottom: 16px;
+  right: 16px;
+  width: 48px;
+  height: 48px;
   border-bottom: 2px solid #c9956c;
   border-right: 2px solid #c9956c;
   z-index: 2;
@@ -80,13 +84,11 @@
   content: '';
   position: absolute;
   inset: 0;
-  background-image: repeating-linear-gradient(
-    45deg,
-    transparent,
-    transparent 30px,
-    rgba(201,149,108,0.025) 30px,
-    rgba(201,149,108,0.025) 31px
-  );
+  background-image: repeating-linear-gradient(45deg,
+      transparent,
+      transparent 30px,
+      rgba(201, 149, 108, 0.025) 30px,
+      rgba(201, 149, 108, 0.025) 31px);
   pointer-events: none;
 }
 
@@ -94,9 +96,11 @@
 .about-content-side::after {
   content: '';
   position: absolute;
-  top: 0; right: 0;
-  width: 300px; height: 300px;
-  background: radial-gradient(circle at top right, rgba(201,149,108,0.08), transparent 70%);
+  top: 0;
+  right: 0;
+  width: 300px;
+  height: 300px;
+  background: radial-gradient(circle at top right, rgba(201, 149, 108, 0.08), transparent 70%);
   pointer-events: none;
 }
 
@@ -112,7 +116,8 @@
 
 .about-eyebrow::before {
   content: '';
-  width: 6px; height: 6px;
+  width: 6px;
+  height: 6px;
   background: #C9956C;
   transform: rotate(45deg);
   flex-shrink: 0;
@@ -179,10 +184,13 @@
   letter-spacing: 0.3px;
   position: relative;
   z-index: 1;
+  text-align: justify;
+  text-justify: inter-word;
+  hyphens: auto;
 }
 
 /* ── Badges ── */
-.about-badges{
+.about-badges {
   display: flex;
   flex-wrap: wrap;
   gap: 8px;
@@ -201,8 +209,8 @@
   padding: 5px 14px;
   border-radius: 0;
   margin: 0 6px 6px 0;
-  border: 1px solid rgba(201,149,108,0.4);
-  color: rgba(201,149,108,0.75);
+  border: 1px solid rgba(201, 149, 108, 0.4);
+  color: rgba(201, 149, 108, 0.75);
   background: transparent;
 }
 
@@ -245,30 +253,54 @@
 }
 
 @keyframes shimmer {
-  0%   { background-position: -200% center; }
-  100% { background-position:  200% center; }
+  0% {
+    background-position: -200% center;
+  }
+
+  100% {
+    background-position: 200% center;
+  }
 }
 
 /* ── Desktop ── */
 @media (min-width: 991px) {
-  .about-root { min-height: 800px; }
-  .about-image-side { min-height: 800px; }
-  .about-content-side { padding: 80px 70px; }
-  .about-bio { font-size: 18px; max-width: 620px; }
+  .about-root {
+    min-height: 800px;
+  }
+
+  .about-image-side {
+    min-height: 800px;
+  }
+
+  .about-content-side {
+    padding: 80px 70px;
+  }
+
+  .about-bio {
+    font-size: 18px;
+    max-width: 620px;
+  }
 }
 
 /* ── Tablet ── */
 @media (min-width: 768px) and (max-width: 990px) {
-  .about-content-side { padding: 50px 40px; }
-  .about-bio { font-size: 15px; }
+  .about-content-side {
+    padding: 50px 40px;
+  }
+
+  .about-bio {
+    font-size: 15px;
+  }
 }
 
 /* ── Mobile ── */
 @media (max-width: 767px) {
   .about-image-side {
     min-height: 420px;
-    height: 420px; /* explicit height for iOS Safari */
+    height: 420px;
+    /* explicit height for iOS Safari */
   }
+
   .about-img-inner {
     position: absolute;
     top: 0;
@@ -276,18 +308,30 @@
     width: 100%;
     height: 100%;
   }
+
   .about-img-inner img {
     width: 100%;
     height: 100%;
     object-fit: cover;
     object-position: top center;
   }
+
   .about-content-side {
     padding: 36px 24px;
     border-left: none;
     border-top: 1px solid #252020;
   }
-  .about-bio { font-size: 15px; }
-  .about-badges { gap: 6px }
-  .about-badge { font-size: 9px; padding: 4px 12px; }
+
+  .about-bio {
+    font-size: 15px;
+  }
+
+  .about-badges {
+    gap: 6px
+  }
+
+  .about-badge {
+    font-size: 9px;
+    padding: 4px 12px;
+  }
 }

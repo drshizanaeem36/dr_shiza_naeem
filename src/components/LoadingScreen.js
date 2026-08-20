@@ -39,6 +39,18 @@ export default function LoadingScreen({ hidden = false, onReady }) {
   const [showLogo, setShowLogo] = useState(false);
   const firedReady = useRef(false);
 
+  // Lock body scroll while loading screen is visible
+  useEffect(() => {
+    if (!hidden) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
+    }
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [hidden]);
+
   useEffect(() => {
     const timers = [];
 
@@ -61,6 +73,7 @@ export default function LoadingScreen({ hidden = false, onReady }) {
 
     return () => timers.forEach(clearTimeout);
   }, [onReady]);
+
 
   return (
     <div

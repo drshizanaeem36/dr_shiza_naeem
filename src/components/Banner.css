@@ -60,6 +60,9 @@
   color: #E8C4A8;
   margin: 20px 0 44px 0;
   max-width: 420px;
+  text-align: justify;
+  text-justify: inter-word;
+  hyphens: auto;
 }
 
 /* CTA row */

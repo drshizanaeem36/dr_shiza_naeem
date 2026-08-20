@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useRef, useState, useEffect } from "react";
 import "./Reviewsec.css";
 import { Link } from "react-router-dom";
 
@@ -60,7 +60,80 @@ const reviews = [
 ];
 
 export default function ReviewSec() {
-  const track = [...reviews, ...reviews]; // duplicate for seamless loop
+  // Triplicate so there's always content to the left and right when looping
+  const track = [...reviews, ...reviews, ...reviews];
+
+  const containerRef = useRef(null);
+  const isDragging = useRef(false);
+  const isPaused = useRef(false);
+  const startX = useRef(0);
+  const startScrollLeft = useRef(0);
+  const rafRef = useRef(null);
+  const [dragging, setDragging] = useState(false);
+
+  // Auto-scroll loop using requestAnimationFrame
+  useEffect(() => {
+    const container = containerRef.current;
+    if (!container) return;
+
+    const SPEED = 0.7; // px per frame
+
+    const tick = () => {
+      if (!isPaused.current) {
+        container.scrollLeft += SPEED;
+      }
+
+      // Infinite loop: jump within the middle third to avoid hitting the edges
+      const third = container.scrollWidth / 3;
+      if (container.scrollLeft >= third * 2) {
+        container.scrollLeft -= third;
+        startScrollLeft.current -= third;
+      } else if (container.scrollLeft <= 0) {
+        container.scrollLeft += third;
+        startScrollLeft.current += third;
+      }
+
+      rafRef.current = requestAnimationFrame(tick);
+    };
+
+    // Start in the middle third so drag left is always possible
+    const third = container.scrollWidth / 3;
+    container.scrollLeft = third;
+
+    rafRef.current = requestAnimationFrame(tick);
+    return () => cancelAnimationFrame(rafRef.current);
+  }, []);
+
+  const handleMouseDown = (e) => {
+    isDragging.current = true;
+    isPaused.current = true;
+    setDragging(true);
+    startX.current = e.pageX;
+    startScrollLeft.current = containerRef.current.scrollLeft;
+  };
+
+  const handleMouseMove = (e) => {
+    if (!isDragging.current) return;
+    e.preventDefault();
+    const walk = (e.pageX - startX.current) * 1.5;
+    containerRef.current.scrollLeft = startScrollLeft.current - walk;
+  };
+
+  const handleMouseUp = () => {
+    isDragging.current = false;
+    isPaused.current = false;
+    setDragging(false);
+  };
+
+  const handleMouseEnter = () => {
+    if (!isDragging.current) isPaused.current = true;
+  };
+
+  const handleMouseLeave = () => {
+    isDragging.current = false;
+    isPaused.current = false;
+    setDragging(false);
+  };
 
   return (
     <section id="testimonials1" className="testimonials1-section">
@@ -84,7 +157,16 @@ export default function ReviewSec() {
       </div>
 
       {/* Full-width carousel — outside container */}
-      <div className="testimonials-carousel1" aria-label="Client testimonials carousel">
+      <div
+        className={`testimonials-carousel1${dragging ? " is-dragging" : ""}`}
+        aria-label="Client testimonials carousel"
+        ref={containerRef}
+        onMouseDown={handleMouseDown}
+        onMouseMove={handleMouseMove}
+        onMouseUp={handleMouseUp}
+        onMouseEnter={handleMouseEnter}
+        onMouseLeave={handleMouseLeave}
+      >
         <div className="carousel1-track">
           {track.map((t, i) => (
             <div key={i} className="testimonial1-card">
@@ -105,13 +187,14 @@ export default function ReviewSec() {
             </div>
           ))}
         </div>
-        <div className="sv-foot">
-          <Link className="sv-btn" to="/testimonials">
-            View all testimonials
-            <i className="fa-solid fa-arrow-right" aria-hidden="true" />
-          </Link>
-        </div>
+      </div>
+      <div className="sv-foot">
+        <Link className="sv-btn" to="/testimonials">
+          View all testimonials
+          <i className="fa-solid fa-arrow-right" aria-hidden="true" />
+        </Link>
       </div>
     </section>
   );
 }
+

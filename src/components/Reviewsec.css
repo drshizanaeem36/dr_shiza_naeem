@@ -14,8 +14,20 @@
 
 .testimonials-carousel1 {
   margin-top: 2rem;
-  overflow: hidden;
+  overflow-x: scroll;
+  overflow-y: hidden;
   position: relative;
+  cursor: grab;
+  user-select: none;
+  /* hide scrollbar */
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+.testimonials-carousel1::-webkit-scrollbar {
+  display: none;
+}
+.testimonials-carousel1.is-dragging {
+  cursor: grabbing;
 }
 .testimonials-carousel1::before,
 .testimonials-carousel1::after {
@@ -39,15 +51,7 @@
   display: flex;
   gap: 1.5rem;
   padding: 1rem 2rem;
-  animation: carouselScroll 40s linear infinite;
   width: max-content;
-}
-.testimonials-carousel1:hover .carousel1-track {
-  animation-play-state: paused;
-}
-@keyframes carouselScroll {
-  from { transform: translateX(0); }
-  to   { transform: translateX(-50%); }
 }
 
 /* ── Testimonial Card ── */
@@ -83,7 +87,7 @@
   min-height: 282px;
 }
 
-.quote-mark1 {
+.quote1-mark {
   font-family: 'Cormorant Garamond', serif;
   font-size: 60px;
   color: var(--rose-gold);
@@ -102,6 +106,9 @@
   line-height: 1.6;
   flex: 1;
   margin: 0 0 24px;
+  text-align: justify;
+  text-justify: inter-word;
+  hyphens: auto;
 }
 
 .card1-divider {
